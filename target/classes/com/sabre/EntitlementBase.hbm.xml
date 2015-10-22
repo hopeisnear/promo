@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.sabre.db.EntitlementBase" table="entitlement" lazy="false">
+    <id name="id" column="id" type="java.lang.Long">
+      <generator class="native">
+      </generator>
+    </id>
+    <discriminator column="entitlementType" />
+    <property name="name" type="java.lang.String" update="true" insert="true" column="name" not-null="true" unique="true" />
+    <set name="offerings" table="EntitlementOfferng" lazy="false" inverse="false" cascade="save-update" sort="unsorted" outer-join="false">
+      <key column="entitlementId">
+      </key>
+      <many-to-many class="com.sabre.db.Offering" column="offeringId" outer-join="false" />
+    </set>
+    <many-to-one lazy="false" name="userCriteria" class="com.sabre.CriteriaBase" cascade="save-update" outer-join="auto" update="true" insert="true" column="userOrAccountCriteria" />
+    <set name="applicableDates" table="EntitlementApplicableDates" lazy="false" inverse="false" cascade="save-update" sort="unsorted" outer-join="false" batch-size="50">
+      <key column="entitlementId">
+      </key>
+      <composite-element class="com.sabre.db.DateRangeRestriction">
+        <property name="restriction1" type="com.sabre.db.DateRestrictionUserType" update="true" insert="true">
+          <column name="startDate" />
+          <column name="startDateTimeZone" />
+          <column name="startDateIsRolling" />
+          <column name="startDateComparator" />
+        </property>
+        <property name="restriction2" type="com.sabre.db.DateRestrictionUserType" update="true" insert="true">
+          <column name="finishDate" />
+          <column name="finishDateTimeZone" />
+          <column name="finishDateIsRolling" />
+          <column name="finishDateComparator" />
+        </property>
+        <property name="allowedRange" type="boolean" update="true" insert="true" column="allowedRange" />
+      </composite-element>
+    </set>
+    <property name="sellFromDate" type="com.sabre.db.CalendarUserType" update="true" insert="true">
+      <column name="sellFromDate" />
+      <column name="sellFromDateTimezone" />
+    </property>
+    <property name="sellUntilDate" type="com.sabre.db.CalendarUserType" update="true" insert="true">
+      <column name="sellUntilDate" />
+      <column name="sellUntilDateTimezone" />
+    </property>
+    <property name="context" type="java.lang.String" update="true" insert="true" column="context" not-null="false" unique="false" />
+    <property name="ranking" type="int" update="true" insert="true" column="ranking" unique="false" />
+    <property name="locked" type="boolean" update="true" insert="true" column="locked" />
+    <many-to-one lazy="false" name="shoppingBasketCriteria" class="com.sabre.db.ShoppingBasketCriteria" cascade="all" outer-join="auto" update="true" insert="true" column="shoppingBasketCriteria" />
+    <many-to-one lazy="false" name="fareCriteria" class="com.sabre.db.ShoppingBasketCriteria" cascade="all" outer-join="auto" update="true" insert="true" column="fareCriteria" />
+    <property name="changeHistory" type="com.sabre.db.ChangeHistoryCollectionUserType" update="true" insert="true" column="changeHistory" not-null="false" />
+    <subclass name="com.sabre.db.Entitlement" discriminator-value="ENTITLEMENT">
+    </subclass>
+    <subclass name="com.eb2.qtrip.model.promotion.Promotion" discriminator-value="PROMO">
+      <map name="promotionBookingLimits" table="PromotionBookingLimits" lazy="false" sort="unsorted" inverse="false" cascade="all-delete-orphan" outer-join="false">
+        <key column="entitlementId">
+        </key>
+        <index column="promotionCode" type="string" />
+        <element column="bookingLimit" type="long" not-null="false" unique="false" />
+      </map>
+      <property name="description" type="java.lang.String" update="true" insert="true" column="description" />
+      <property name="enabled" type="java.lang.Boolean" update="true" insert="true" column="enabled" />
+    </subclass>
+  </class>
+</hibernate-mapping>

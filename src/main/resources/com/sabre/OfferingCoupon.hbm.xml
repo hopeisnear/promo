@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.sabre.db.OfferingCoupon" table="OfferingCoupon">
+    <id name="id" column="id" type="java.lang.Long">
+      <generator class="native">
+      </generator>
+    </id>
+    <property name="code" type="java.lang.String" update="true" insert="true" column="code" not-null="false" unique="true" />
+    <property name="couponType" type="com.sabre.db.OfferingCouponTypeUserType" update="true" insert="true" column="couponType" />
+    <property name="encryptionKey" type="java.lang.String" update="true" insert="true" column="encryptionKey" not-null="false" unique="false" />
+    <property name="quantity" type="int" update="true" insert="true" column="quantity" />
+    <property name="usedCount" type="int" update="true" insert="true" column="usedCount" />
+  </class>
+</hibernate-mapping>

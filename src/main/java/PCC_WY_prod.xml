@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConfigurationRequest createEnvironment="false" createEnvironmentConfiguration="false" createStorefront="false" create="true" transaction="commit" storefront="WYM0">
+  <ImportPseudoCities>
+    <PseudoCity code="AMS" countryCode="NL" path="B2C">
+      <currencyOverride>EUR</currencyOverride>
+      <mtsIpcc>AMS</mtsIpcc>
+      <printerlniata>AMSNL</printerlniata>
+      <stationId>91012876</stationId>
+      <timezone>GMT+01:00</timezone>
+    </PseudoCity>
+    <PseudoCity code="ADD" countryCode="ET" path="B2C">
+      <currencyOverride>USD</currencyOverride>
+      <mtsIpcc>ADD</mtsIpcc>
+      <printerlniata>ADDET</printerlniata>
+      <stationId>91012530</stationId>
+      <timezone>GMT+03:00</timezone>
+    </PseudoCity>
+  </ImportPseudoCities>
+</ConfigurationRequest>

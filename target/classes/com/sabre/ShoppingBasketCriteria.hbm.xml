@@ -1,0 +1,995 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.sabre.db.ShoppingBasketCriteria" table="ShoppingBasketCriteria" batch-size="50">
+    <id name="id" column="id" type="java.lang.Long">
+      <generator class="native">
+      </generator>
+    </id>
+    <component name="bookingClass" class="com.sabre.db.FieldCriteriaString">
+      <property name="matchCase" type="boolean" update="true" insert="true">
+        <column name="bClassmatchCase" />
+      </property>
+      <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+        <column name="bClasswildCard" />
+      </property>
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="bClassincludeValues" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="bClassexcludeValues" />
+      </property>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="bClassfieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="bClassallIncludes" />
+      </property>
+    </component>
+    <component name="bookingClassCategory" class="com.sabre.db.FieldCriteriaString">
+      <property name="matchCase" type="boolean" update="true" insert="true">
+        <column name="bClassCatmatchCase" />
+      </property>
+      <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+        <column name="bClassCatwildCard" />
+      </property>
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="bClassCatincludeValues" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="bClassCatexcludeValues" />
+      </property>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="bClassCatfieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="bClassCatallIncludes" />
+      </property>
+    </component>
+    <component name="destination" class="com.sabre.db.FieldCriteriaLocation">
+      <many-to-one lazy="false" name="excludeValue1" class="com.sabre.db.Location" cascade="none" outer-join="auto" update="true" insert="true" column="destinationexcludeValue1" not-null="false" />
+      <many-to-one lazy="false" name="excludeValue2" class="com.sabre.db.Location" cascade="none" outer-join="auto" update="true" insert="true" column="destinationexcludeValue2" not-null="false" />
+      <many-to-one lazy="false" name="excludeValue3" class="com.sabre.db.Location" cascade="none" outer-join="auto" update="true" insert="true" column="destinationexcludeValue3" not-null="false" />
+      <many-to-one lazy="false" name="includeValue1" class="com.sabre.db.Location" cascade="none" outer-join="auto" update="true" insert="true" column="destinationincludeValue1" not-null="false" />
+      <many-to-one lazy="false" name="includeValue2" class="com.sabre.db.Location" cascade="none" outer-join="auto" update="true" insert="true" column="destinationincludeValue2" not-null="false" />
+      <many-to-one lazy="false" name="includeValue3" class="com.sabre.db.Location" cascade="none" outer-join="auto" update="true" insert="true" column="destinationincludeValue3" not-null="false" />
+      <many-to-one lazy="false" name="excludeValue4" class="com.sabre.db.Location" cascade="none" outer-join="auto" update="true" insert="true" column="destinationexcludeValue4" not-null="false" />
+      <many-to-one lazy="false" name="excludeValue5" class="com.sabre.db.Location" cascade="none" outer-join="auto" update="true" insert="true" column="destinationexcludeValue5" not-null="false" />
+      <many-to-one lazy="false" name="includeValue4" class="com.sabre.db.Location" cascade="none" outer-join="auto" update="true" insert="true" column="destinationincludeValue4" not-null="false" />
+      <many-to-one lazy="false" name="includeValue5" class="com.sabre.db.Location" cascade="none" outer-join="auto" update="true" insert="true" column="destinationincludeValue5" not-null="false" />
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="destinationfieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="destinationallIncludes" />
+      </property>
+    </component>
+    <component name="origin" class="com.sabre.db.FieldCriteriaLocation">
+      <many-to-one lazy="false" name="excludeValue1" class="com.sabre.db.Location" cascade="none" outer-join="auto" update="true" insert="true" column="originexcludeValue1" not-null="false" />
+      <many-to-one lazy="false" name="excludeValue2" class="com.sabre.db.Location" cascade="none" outer-join="auto" update="true" insert="true" column="originexcludeValue2" not-null="false" />
+      <many-to-one lazy="false" name="excludeValue3" class="com.sabre.db.Location" cascade="none" outer-join="auto" update="true" insert="true" column="originexcludeValue3" not-null="false" />
+      <many-to-one lazy="false" name="includeValue1" class="com.sabre.db.Location" cascade="none" outer-join="auto" update="true" insert="true" column="originincludeValue1" not-null="false" />
+      <many-to-one lazy="false" name="includeValue2" class="com.sabre.db.Location" cascade="none" outer-join="auto" update="true" insert="true" column="originincludeValue2" not-null="false" />
+      <many-to-one lazy="false" name="includeValue3" class="com.sabre.db.Location" cascade="none" outer-join="auto" update="true" insert="true" column="originincludeValue3" not-null="false" />
+      <many-to-one lazy="false" name="excludeValue4" class="com.sabre.db.Location" cascade="none" outer-join="auto" update="true" insert="true" column="originexcludeValue4" not-null="false" />
+      <many-to-one lazy="false" name="excludeValue5" class="com.sabre.db.Location" cascade="none" outer-join="auto" update="true" insert="true" column="originexcludeValue5" not-null="false" />
+      <many-to-one lazy="false" name="includeValue4" class="com.sabre.db.Location" cascade="none" outer-join="auto" update="true" insert="true" column="originincludeValue4" not-null="false" />
+      <many-to-one lazy="false" name="includeValue5" class="com.sabre.db.Location" cascade="none" outer-join="auto" update="true" insert="true" column="originincludeValue5" not-null="false" />
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="originfieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="originallIncludes" />
+      </property>
+    </component>
+    <component name="fareBasis" class="com.sabre.db.FieldCriteriaString">
+      <property name="matchCase" type="boolean" update="true" insert="true">
+        <column name="fareBasismatchCase" />
+      </property>
+      <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+        <column name="fareBasiswildCard" />
+      </property>
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="fareBasisincludeValues" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="fareBasisexcludeValues" />
+      </property>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="fareBasisfieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="fareBasisallIncludes" />
+      </property>
+    </component>
+    <component name="brandId" class="com.sabre.db.FieldCriteriaString">
+      <property name="matchCase" type="boolean" update="true" insert="true">
+        <column name="brandIdmatchCase" />
+      </property>
+      <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+        <column name="brandIdwildCard" />
+      </property>
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="brandIdincludeValues" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="brandIdexcludeValues" />
+      </property>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="brandIdfieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="brandIdallIncludes" />
+      </property>
+    </component>
+
+    <component name="pointOfSale" class="com.sabre.db.FieldCriteriaString">
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="pointOfSaleIncludes" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="pointOfSaleExcludes" />
+      </property>
+    </component>
+
+    <component name="bookingDate" class="com.sabre.db.FieldCriteriaDate">
+      <component name="date1" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="bookingDatedate1end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="bookingDatedate1start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="bookingDatedate1inside" />
+        </property>
+      </component>
+      <component name="date2" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="bookingDatedate2end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="bookingDatedate2start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="bookingDatedate2inside" />
+        </property>
+      </component>
+      <component name="date3" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="bookingDatedate3end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="bookingDatedate3start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="bookingDatedate3inside" />
+        </property>
+      </component>
+      <component name="date4" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="bookingDatedate4end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="bookingDatedate4start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="bookingDatedate4inside" />
+        </property>
+      </component>
+      <component name="date5" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="bookingDatedate5end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="bookingDatedate5start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="bookingDatedate5inside" />
+        </property>
+      </component>
+      <component name="date6" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="bookingDatedate6end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="bookingDatedate6start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="bookingDatedate6inside" />
+        </property>
+      </component>
+      <component name="date7" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="bookingDatedate7end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="bookingDatedate7start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="bookingDatedate7inside" />
+        </property>
+      </component>
+      <component name="date8" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="bookingDatedate8end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="bookingDatedate8start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="bookingDatedate8inside" />
+        </property>
+      </component>
+      <component name="date9" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="bookingDatedate9end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="bookingDatedate9start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="bookingDatedate9inside" />
+        </property>
+      </component>
+      <component name="date10" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="bookingDatedate10end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="bookingDatedate10start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="bookingDatedate10inside" />
+        </property>
+      </component>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="bookingDatefieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="bookingDateallIncludes" />
+      </property>
+    </component>
+    <component name="paymentTypes" class="com.sabre.db.FieldCriteriaString">
+      <property name="matchCase" type="boolean" update="true" insert="true">
+        <column name="creditCardTypesmatchCase" />
+      </property>
+      <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+        <column name="creditCardTypeswildCard" />
+      </property>
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="creditCardTypesincludeValues" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="creditCardTypesexcludeValues" />
+      </property>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="creditCardTypesfieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="creditCardTypesallIncludes" />
+      </property>
+    </component>
+    <component name="departureDate" class="com.sabre.db.FieldCriteriaDate">
+      <component name="date1" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="departureDatedate1end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="departureDatedate1start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="departureDatedate1inside" />
+        </property>
+      </component>
+      <component name="date2" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="departureDatedate2end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="departureDatedate2start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="departureDatedate2inside" />
+        </property>
+      </component>
+      <component name="date3" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="departureDatedate3end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="departureDatedate3start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="departureDatedate3inside" />
+        </property>
+      </component>
+      <component name="date4" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="departureDatedate4end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="departureDatedate4start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="departureDatedate4inside" />
+        </property>
+      </component>
+      <component name="date5" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="departureDatedate5end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="departureDatedate5start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="departureDatedate5inside" />
+        </property>
+      </component>
+      <component name="date6" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="departureDatedate6end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="departureDatedate6start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="departureDatedate6inside" />
+        </property>
+      </component>
+      <component name="date7" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="departureDatedate7end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="departureDatedate7start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="departureDatedate7inside" />
+        </property>
+      </component>
+      <component name="date8" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="departureDatedate8end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="departureDatedate8start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="departureDatedate8inside" />
+        </property>
+      </component>
+      <component name="date9" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="departureDatedate9end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="departureDatedate9start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="departureDatedate9inside" />
+        </property>
+      </component>
+      <component name="date10" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="departureDatedate10end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="departureDatedate10start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="departureDatedate10inside" />
+        </property>
+      </component>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="departureDatefieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="departureDateallIncludes" />
+      </property>
+    </component>
+    <component name="fareClassName" class="com.sabre.db.FieldCriteriaString">
+      <property name="matchCase" type="boolean" update="true" insert="true">
+        <column name="fareClassNamematchCase" />
+      </property>
+      <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+        <column name="fareClassNamewildCard" />
+      </property>
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="fareClassNameincludeValues" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="fareClassNameexcludeValues" />
+      </property>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="fareClassNamefieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="fareClassNameallIncludes" />
+      </property>
+    </component>
+    <component name="privateFareCodes" class="com.sabre.db.FieldCriteriaString">
+      <property name="matchCase" type="boolean" update="true" insert="true">
+        <column name="privateFareCodesmatchCase" />
+      </property>
+      <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+        <column name="privateFareCodeswildCard" />
+      </property>
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="privateFareCodesincludeValues" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="privateFareCodesexcludeValues" />
+      </property>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="privateFareCodesfieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="privateFareCodesallIncludes" />
+      </property>
+    </component>
+    <component name="fareType" class="com.sabre.db.FieldCriteriaString">
+      <property name="matchCase" type="boolean" update="true" insert="true">
+        <column name="fareTypematchCase" />
+      </property>
+      <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+        <column name="fareTypewildCard" />
+      </property>
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="fareTypeincludeValues" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="fareTypeexcludeValues" />
+      </property>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="fareTypefieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="fareTypeallIncludes" />
+      </property>
+    </component>
+    <component name="tierLevel" class="com.sabre.db.FieldCriteriaString">
+      <property name="matchCase" type="boolean" update="true" insert="true">
+        <column name="tierLevelmatchCase" />
+      </property>
+      <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+        <column name="tierLevelwildCard" />
+      </property>
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="tierLevelincludeValues" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="tierLevelexcludeValues" />
+      </property>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="tierLevelfieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="tierLevelallIncludes" />
+      </property>
+    </component>
+    <component name="highestPassengersTierLevel" class="com.sabre.db.FieldCriteriaString">
+      <property name="matchCase" type="boolean" update="true" insert="true">
+        <column name="paxesTierLevelmatchCase" />
+      </property>
+      <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+        <column name="paxesTierLevelwildCard" />
+      </property>
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="paxesTierLevelincludeValues" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="paxesTierLevelexcludeValues" />
+      </property>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="paxesTierLevelfieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="paxesTierLevelallIncludes" />
+      </property>
+    </component>
+    <component name="flightNumbers" class="com.sabre.db.FieldCriteriaFlightNumberString">
+      <property name="matchCase" type="boolean" update="true" insert="true">
+        <column name="flightNumbersmatchCase" />
+      </property>
+      <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+        <column name="flightNumberswildCard" />
+      </property>
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="flightNumbersincludeValues" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="flightNumbersexcludeValues" />
+      </property>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="flightNumbersfieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="flightNumbersallIncludes" />
+      </property>
+    </component>
+    <property name="minDepartureTime" type="java.lang.Long" update="true" insert="true" column="minDepartureTime" />
+    <property name="numberOfItineraryParts" type="java.lang.Integer" update="true" insert="true" column="numberOfItineraryParts" />
+    <component name="operatingAirline" class="com.sabre.db.FieldCriteriaString">
+      <property name="matchCase" type="boolean" update="true" insert="true">
+        <column name="operatingAirlinematchCase" />
+      </property>
+      <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+        <column name="operatingAirlinewildCard" />
+      </property>
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="operatingAirlineincludeValues" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="operatingAirlineexcludeValues" />
+      </property>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="operatingAirlinefieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="operatingAirlineallIncludes" />
+      </property>
+    </component>
+    <component name="routeCategory" class="com.sabre.db.FieldCriteriaString">
+      <property name="matchCase" type="boolean" update="true" insert="true">
+        <column name="routeCategorymatchCase" />
+      </property>
+      <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+        <column name="routeCategorywildCard" />
+      </property>
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="routeCategoryincludeValues" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="routeCategoryexcludeValues" />
+      </property>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="routeCategoryfieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="routeCategoryallIncludes" />
+      </property>
+    </component>
+    <component name="paxType" class="com.sabre.db.FieldCriteriaString">
+      <property name="matchCase" type="boolean" update="true" insert="true">
+        <column name="paxTypematchCase" />
+      </property>
+      <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+        <column name="paxTypewildCard" />
+      </property>
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="paxTypeincludeValues" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="paxTypeexcludeValues" />
+      </property>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="paxTypefieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="paxTypeallIncludes" />
+      </property>
+    </component>
+    <component name="pricingCurrency" class="com.sabre.db.FieldCriteriaString">
+      <property name="matchCase" type="boolean" update="true" insert="true">
+        <column name="pricingCurrencymatchCase" />
+      </property>
+      <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+        <column name="pricingCurrencywildCard" />
+      </property>
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="pricingCurrencyincludeValues" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="pricingCurrencyexcludeValues" />
+      </property>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="pricingCurrencyfieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="pricingCurrencyallIncludes" />
+      </property>
+    </component>
+    <component name="returnDate" class="com.sabre.db.FieldCriteriaDate">
+      <component name="date1" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="returnDatedate1end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="returnDatedate1start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="returnDatedate1inside" />
+        </property>
+      </component>
+      <component name="date2" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="returnDatedate2end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="returnDatedate2start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="returnDatedate2inside" />
+        </property>
+      </component>
+      <component name="date3" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="returnDatedate3end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="returnDatedate3start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="returnDatedate3inside" />
+        </property>
+      </component>
+      <component name="date4" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="returnDatedate4end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="returnDatedate4start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="returnDatedate4inside" />
+        </property>
+      </component>
+      <component name="date5" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="returnDatedate5end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="returnDatedate5start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="returnDatedate5inside" />
+        </property>
+      </component>
+      <component name="date6" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="returnDatedate6end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="returnDatedate6start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="returnDatedate6inside" />
+        </property>
+      </component>
+      <component name="date7" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="returnDatedate7end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="returnDatedate7start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="returnDatedate7inside" />
+        </property>
+      </component>
+      <component name="date8" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="returnDatedate8end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="returnDatedate8start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="returnDatedate8inside" />
+        </property>
+      </component>
+      <component name="date9" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="returnDatedate9end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="returnDatedate9start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="returnDatedate9inside" />
+        </property>
+      </component>
+      <component name="date10" class="com.sabre.db.DatePair">
+        <property name="end" type="java.util.Date" update="true" insert="true">
+          <column name="returnDatedate10end" />
+        </property>
+        <property name="start" type="java.util.Date" update="true" insert="true">
+          <column name="returnDatedate10start" />
+        </property>
+        <property name="inside" type="boolean" update="true" insert="true">
+          <column name="returnDatedate10inside" />
+        </property>
+      </component>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="returnDatefieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="returnDateallIncludes" />
+      </property>
+    </component>
+
+    <component name="countryOfResidence" class="com.sabre.db.FieldCriteriaString">
+      <property name="matchCase" type="boolean" update="true" insert="true">
+        <column name="countryOfResmatchCase" />
+      </property>
+      <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+        <column name="countryOfReswildCard" />
+      </property>
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="countryOfResincludeValues" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="countryOfResexcludeValues" />
+      </property>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="countryOfResfieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="countryOfResallIncludes" />
+      </property>
+    </component>
+    <component name="bookerCriteria" class="com.sabre.db.UserCriteria">
+      <component name="accountAddressLocation" class="com.sabre.db.FieldCriteriaString">
+        <property name="matchCase" type="boolean" update="true" insert="true">
+          <column name="bCritaccAddLocmatchCase" />
+        </property>
+        <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+          <column name="bCritaccAddLocwildCard" />
+        </property>
+        <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+          <column name="bCritaccAddLocincludeValues" />
+        </property>
+        <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+          <column name="bCritaccAddLocexcludeValues" />
+        </property>
+        <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+          <column name="bCritaccAddLocfieldState" length="10" />
+        </property>
+        <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+          <column name="bCritaccAddLocallIncludes" />
+        </property>
+      </component>
+      <component name="accountId" class="com.sabre.db.FieldCriteriaString">
+        <property name="matchCase" type="boolean" update="true" insert="true">
+          <column name="bCritAccountIdmatchCase" />
+        </property>
+        <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+          <column name="bCritAccountIdwildCard" />
+        </property>
+        <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+          <column name="bCritAccountIdincludeValues" />
+        </property>
+        <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+          <column name="bCritAccountIdexcludeValues" />
+        </property>
+        <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+          <column name="bCritAccountIdfieldState" length="10" />
+        </property>
+        <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+          <column name="bCritAccountIdallIncludes" />
+        </property>
+      </component>
+      <component name="accountName" class="com.sabre.db.FieldCriteriaString">
+        <property name="matchCase" type="boolean" update="true" insert="true">
+          <column name="bCritAccountNamematchCase" />
+        </property>
+        <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+          <column name="bCritAccountNamewildCard" />
+        </property>
+        <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+          <column name="bCritAccountNameincludeValues" />
+        </property>
+        <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+          <column name="bCritAccountNameexcludeValues" />
+        </property>
+        <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+          <column name="bCritAccountNamefieldState" length="10" />
+        </property>
+        <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+          <column name="bCritAccountNameallIncludes" />
+        </property>
+      </component>
+      <component name="accountTypes" class="com.sabre.db.FieldCriteriaString">
+        <property name="matchCase" type="boolean" update="true" insert="true">
+          <column name="bCritAccountTypesmatchCase" />
+        </property>
+        <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+          <column name="bCritAccountTypeswildCard" />
+        </property>
+        <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+          <column name="bCritAccountTypesincludeValues" />
+        </property>
+        <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+          <column name="bCritAccountTypesexcludeValues" />
+        </property>
+        <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+          <column name="bCritAccountTypesfieldState" length="10" />
+        </property>
+        <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+          <column name="bCritAccountTypesallIncludes" />
+        </property>
+      </component>
+      <component name="userFirstName" class="com.sabre.db.FieldCriteriaString">
+        <property name="matchCase" type="boolean" update="true" insert="true">
+          <column name="bCritFirstNamematchCase" />
+        </property>
+        <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+          <column name="bCritFirstNamewildCard" />
+        </property>
+        <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+          <column name="bCritFirstNameincludeValues" />
+        </property>
+        <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+          <column name="bCritFirstNameexcludeValues" />
+        </property>
+        <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+          <column name="bCritFirstNamefieldState" length="10" />
+        </property>
+        <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+          <column name="bCritFirstNameallIncludes" />
+        </property>
+      </component>
+      <component name="userLastName" class="com.sabre.db.FieldCriteriaString">
+        <property name="matchCase" type="boolean" update="true" insert="true">
+          <column name="bCritLastNamematchCase" />
+        </property>
+        <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+          <column name="bCritLastNamewildCard" />
+        </property>
+        <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+          <column name="bCritLastNameincludeValues" />
+        </property>
+        <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+          <column name="bCritLastNameexcludeValues" />
+        </property>
+        <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+          <column name="bCritLastNamefieldState" length="10" />
+        </property>
+        <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+          <column name="bCritLastNameallIncludes" />
+        </property>
+      </component>
+      <component name="username" class="com.sabre.db.FieldCriteriaString">
+        <property name="matchCase" type="boolean" update="true" insert="true">
+          <column name="bCritUsernamematchCase" />
+        </property>
+        <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+          <column name="bCritUsernamewildCard" />
+        </property>
+        <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+          <column name="bCritUsernameincludeValues" />
+        </property>
+        <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+          <column name="bCritUsernameexcludeValues" />
+        </property>
+        <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+          <column name="bCritUsernamefieldState" length="10" />
+        </property>
+        <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+          <column name="bCritUsernameallIncludes" />
+        </property>
+      </component>
+      <component name="userPermissionGroup" class="com.sabre.db.FieldCriteriaString">
+        <property name="matchCase" type="boolean" update="true" insert="true">
+          <column name="bCritPermGrpmatchCase" />
+        </property>
+        <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+          <column name="bCritPermGrpwildCard" />
+        </property>
+        <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+          <column name="bCritPermGrpincludeValues" />
+        </property>
+        <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+          <column name="bCritPermGrpexcludeValues" />
+        </property>
+        <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+          <column name="bCritPermGrpfieldState" length="10" />
+        </property>
+        <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+          <column name="bCritPermGrpallIncludes" />
+        </property>
+      </component>
+      <component name="userPermission" class="com.sabre.db.FieldCriteriaString">
+        <property name="matchCase" type="boolean" update="true" insert="true">
+          <column name="bCritPermmatchCase" />
+        </property>
+        <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+          <column name="bCritPermwildCard" />
+        </property>
+        <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+          <column name="bCritPermincludeValues" />
+        </property>
+        <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+          <column name="bCritPermexcludeValues" />
+        </property>
+        <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+          <column name="bCritPermfieldState" length="10" />
+        </property>
+        <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+          <column name="bCritPermallIncludes" />
+        </property>
+      </component>
+    </component>
+    <component name="appliedEntitlements" class="com.sabre.db.FieldCriteriaString">
+      <property name="matchCase" type="boolean" update="true" insert="true">
+        <column name="appliedEntmatchCase" />
+      </property>
+      <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+        <column name="appliedEntwildCard" />
+      </property>
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="appliedEntincludeValues" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="appliedEntexcludeValues" />
+      </property>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="appliedEntfieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="appliedEntallIncludes" />
+      </property>
+    </component>
+    <component name="promoCode" class="com.sabre.db.FieldCriteriaString">
+      <property name="matchCase" type="boolean" update="true" insert="true">
+        <column name="promoCodematchCase" />
+      </property>
+      <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+        <column name="promoCodewildCard" />
+      </property>
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="promoCodeincludeValues" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="promoCodeexcludeValues" />
+      </property>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="promoCodefieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="promoCodeallIncludes" />
+      </property>
+    </component>
+    <component name="language" class="com.sabre.db.FieldCriteriaString">
+      <property name="matchCase" type="boolean" update="true" insert="true">
+        <column name="languagematchCase" />
+      </property>
+      <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+        <column name="languagewildCard" />
+      </property>
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="languageincludeValues" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="languageexcludeValues" />
+      </property>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="languagefieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="languageallIncludes" />
+      </property>
+    </component>
+    <component name="paymentMethod" class="com.sabre.db.FieldCriteriaString">
+      <property name="matchCase" type="boolean" update="true" insert="true">
+        <column name="paymentMethodmatchCase" />
+      </property>
+      <property name="wildCardMatchAllowed" type="boolean" update="true" insert="true">
+        <column name="paymentMethodwildCard" />
+      </property>
+      <property name="includeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="paymentMethodincludeValues" />
+      </property>
+      <property name="excludeValues" type="com.sabre.db.StringCollectionUserType" update="true" insert="true">
+        <column name="paymentMethodexcludeValues" />
+      </property>
+      <property name="fieldState" type="com.sabre.db.FieldStateUserType" update="true" insert="true">
+        <column name="paymentMethodfieldState" length="10" />
+      </property>
+      <property name="paramAttributesMustAllBeMatched" type="boolean" update="true" insert="true">
+        <column name="paymentMethodallIncludes" />
+      </property>
+    </component>
+  </class>
+</hibernate-mapping>
